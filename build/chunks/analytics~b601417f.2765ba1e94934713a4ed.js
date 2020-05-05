@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[2],{321:function(n,c,o){"use strict";o.r(c);var t,i,s,e=o(49);window.analytics=(t=0,i=!1,s=function(){return t++},e(document).on("click",s),{destroy:function(){e(document).off("click",s),i=!0},getClicks:function(){return i?"Analytics is destroyed. Total clicks = ".concat(t):t}})}},[[321,0,1]]]);

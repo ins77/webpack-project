@@ -1,17 +1,16 @@
-// import * as $ from 'jquery'
+import * as $ from 'jquery'
 
-function createAnalytics(): object {
+function createAnalytics(): any {
   let counter = 0
-  let destroyed = false
-  // let destroyed: boolean = false
+  let destroyed: boolean = false
 
-  // const listener = (): number => counter++
+  const listener = (): number => counter++
 
-  // $(document).on('click', listener)
+  $(document).on('click', listener)
 
   return {
     destroy() {
-      // $(document).off('click', listener)
+      $(document).off('click', listener)
       destroyed = true
     },
 
