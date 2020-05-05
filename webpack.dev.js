@@ -9,6 +9,7 @@ module.exports = merge([
   {
     mode: "development",
     devtool: "inline-source-map",
+    // webpack-dev-server running in-memory, support hmr, uses only for development
     devServer: {
       stats: "errors-only",
       port: 4200,
@@ -17,7 +18,9 @@ module.exports = merge([
       // proxy,
       // open: true,
       // host: process.env.HOST, // defaults localhost
-      // port: process.env.PORT, // defaults 8080
+      // port: process.env.PORT, // defaults 8080 => PORT=3000 npm start
+      // contentBase
+      // headers
     },
     plugins: [
       new HtmlWebpackPlugin({

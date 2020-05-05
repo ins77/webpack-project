@@ -1,3 +1,4 @@
+const webpack = require("webpack");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
@@ -20,9 +21,11 @@ module.exports = {
       "@models": PATHS.models,
       "@": PATHS.src,
     },
+    // plugins,
+    // modules,
   },
   optimization: {
-    runtimeChunk: "single",
+    runtimeChunk: "single", // separate manifest/runtime - описание какие файлы должен загрузить webpack
     splitChunks: {
       // minSize: 10000,
       // maxSize: 250000,
@@ -45,6 +48,10 @@ module.exports = {
         to: PATHS.build,
       },
     ]),
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      _: "lodash",
+    }),
   ],
   module: {
     rules: [
@@ -65,7 +72,7 @@ module.exports = {
           {
             loader: "file-loader",
             options: {
-              name: "assets/[name].[hash].[ext]",
+              name: "assets/[name].[hash].[ext]", // in file-loader hash=contenthash
             },
           },
         ],

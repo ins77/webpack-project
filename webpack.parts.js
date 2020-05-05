@@ -81,7 +81,7 @@ exports.postCssLoader = () => {
 //         include,
 //         exclude,
 //         use: {
-//           // includes file-loader under the hood when used with limit option
+//           // includes file-loader under the hood when used with limit option (все, что ниже limit - добавляется как base64 в чанк)
 //           loader: "url-loader",
 //           options, // { limit: 15000, name: "[name].[hash].[ext]" },
 //         },
@@ -90,10 +90,30 @@ exports.postCssLoader = () => {
 //   },
 // });
 
+// Лоадеры
+// {
+//   test,
+//   include,
+//   exclude,
+//   use: {
+//     loader,
+//     options,
+//     resource,
+//     issuer,
+//     resourcePath,
+//     resourceQuery,
+//     enforce
+//     oneOf,
+//     not,
+//     and,
+//     or,
+//   },
+// }
+
 // module: {
-//   rules: [
-//     "style-loader",
+//   rules: [ // лоадеры читаются справа-налеву и сверху-вниз, можно использовать на уровне импортов
+//     "style-loader", // adding styles into <head />
 //     // doesn't cache CSS, use mini-css-plugin and get flash of unstyled content
-//     "css-loader", // doesn't touch absolute imports (url("/static/img/demo.png")), use copy-webpack-plugin or resolve-url-loader if you nedd to do this
+//     "css-loader", // needs for resolve imports, doesn't touch absolute imports (url("/static/img/demo.png")), use copy-webpack-plugin or resolve-url-loader if you nedd to do this
 //   ];
 // }
